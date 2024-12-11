@@ -45,25 +45,6 @@ const updateTodo = async (req, res) => {
   }
 };
 
-const editTodo = async (req, res) => {
-  const { id } = req.params;
-  const { title } = req.body;
-
-  try {
-    const editTodo = await Todo.findByIdAndUpdate(
-      id,
-      { title },
-      { new: true }
-    );
-    if (!editTodo) {
-      return res.status(404).json({ message: 'Todo not found' });
-    }
-    res.status(200).json(editTodo);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
 
 
 // Delete a todo
@@ -81,4 +62,4 @@ const deleteTodo = async (req, res) => {
   }
 };
 
-module.exports = { getTodos, addTodo, updateTodo, deleteTodo, editTodo };
+module.exports = { getTodos, addTodo, updateTodo, deleteTodo };

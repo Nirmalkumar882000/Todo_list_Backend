@@ -1,5 +1,3 @@
-// backend/routes/todoRoutes.js
-
 const express = require('express');
 const {
   getTodos,
@@ -13,7 +11,6 @@ const router = express.Router();
 router.get('/', getTodos);
 router.post('/', addTodo);
 router.put('/:id', updateTodo);
-router.patch('/:id', editTodo);
 router.delete('/:id', deleteTodo);
 
 module.exports = router;
